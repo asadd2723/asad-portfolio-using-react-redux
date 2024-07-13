@@ -34,7 +34,7 @@ function Contact() {
             })}
           </div>
           {/* Form */}
-          <form name='contact-us' className='space-y-8 w-full max-w-[780px]' method='POST' onSubmit={handleSubmit} data-netlify="true" >
+          <form name='contact-us' className='space-y-8 w-full max-w-[780px]' method='POST'  data-netlify="true" >
             <input type="hidden" name="form-name" value="contact-us" />
             <div className='flex gap-8'>
               <input className='rounded-lg input' type="text" placeholder='Enter your name' name='Name' required/>
