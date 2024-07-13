@@ -1,11 +1,20 @@
 import React, { useState } from 'react'
 import { contact } from '../data'
 import Thank from './Thank';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { submitForm } from '../store/formSlice';
 
 
 function Contact() {
+  const dispatch = useDispatch();
+  const { isSubmitting, isSubmitted, error } = useSelector((state) => state.form);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    dispatch(submitForm(formData));
+  };
 
   // if (submitted) {
   //   return <Thank change={()=>setSubmitted(false)} />;
@@ -34,7 +43,7 @@ function Contact() {
             })}
           </div>
           {/* Form */}
-          <form name='contact-us' className='space-y-8 w-full max-w-[780px]' method='POST'  data-netlify="true" >
+          <form name='contact-us' className='space-y-8 w-full max-w-[780px]' method='POST' onSubmit={handleSubmit} data-netlify="true" >
             <input type="hidden" name="form-name" value="contact-us" />
             <div className='flex gap-8'>
               <input className='rounded-lg input' type="text" placeholder='Enter your name' name='Name' required/>
