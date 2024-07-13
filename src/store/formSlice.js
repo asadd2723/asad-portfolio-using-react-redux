@@ -19,10 +19,13 @@ export const submitForm = createAsyncThunk(
         body: new URLSearchParams(formData).toString(),
       });
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`Network response was not ok: ${response.statusText}`);
       }
       return true;
     } catch (error) {
+      console.error('Catch block error:', error);
       return rejectWithValue(error.message);
     }
   }
