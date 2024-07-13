@@ -7,9 +7,9 @@ import { submitForm } from '../store/formSlice';
 
 function Contact() {
 
-  if (submitted) {
-    return <Thank change={()=>setSubmitted(false)} />;
-  }
+  // if (submitted) {
+  //   return <Thank change={()=>setSubmitted(false)} />;
+  // }
   
   return (
     <section id='contact' className='section bg-primary '>
