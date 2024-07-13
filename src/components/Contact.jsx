@@ -16,9 +16,9 @@ function Contact() {
     dispatch(submitForm(formData));
   };
 
-  // if (submitted) {
-  //   return <Thank change={()=>setSubmitted(false)} />;
-  // }
+  if (isSubmitted) {
+    return <Thank />;
+  }
   
   return (
     <section id='contact' className='section bg-primary '>
